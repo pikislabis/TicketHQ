@@ -1,0 +1,24 @@
+-content_for :title do
+	Ticket nº	
+	=@ticket.id
+
+-content_for :button_back do
+	=link_to "Atras", "/projects/#{@ticket.project.id}", :class => "back"
+
+%h2 Titulo
+%ul
+	%li= @ticket.title
+%h2 Creador
+%ul
+	%li= @ticket.user.name
+%h2 Descripcion
+%ul
+	%li= @ticket.description
+%h2 Estado
+%ul
+	%li= @ticket.status.name
+%h2 Cambios
+%ul
+	-for record in @ticket.records
+		%li.arrow
+			=link_to record.text2, "/records/#{record.id}"

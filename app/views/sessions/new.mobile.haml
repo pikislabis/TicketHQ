@@ -1,0 +1,21 @@
+=render :partial => 'layouts/top'
+
+.current
+	.toolbar
+		%h1 TicketHQ Movil
+	-unless flash.empty?
+		.info
+			-flash.each do |name, msg|
+				=content_tag :div, msg, :id => "flash_#{name}"	
+	-form_tag session_path, :name => "login_user", :class => "form" do
+		%ul
+			%li=text_field_tag 'login', @login, :value => "Usuario", :onclick => "clickclear(this, 'Usuario')", :onblur => "clickrecall(this,'Usuario')"
+			%li=password_field_tag 'password', nil, :value => "Password", :onclick => "clickclear(this, 'Password')", :onblur => "clickrecall(this,'Password')"
+			%li
+				= check_box_tag 'remember_me', '1', @remember_me
+				Recordarme	
+			
+		=link_to "Entrar", "#", :onclick => "document.login_user.submit();", :class => "whiteButton submit"
+
+	.info
+		%p=link_to "Version Completa", root_url(:mobile => 0)

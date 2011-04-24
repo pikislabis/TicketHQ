@@ -1,0 +1,9 @@
+-content_for :title do
+	Proyectos
+
+%ul
+	-for project in @projects
+		%li.arrow
+			=link_to project.name, "/projects/#{project.id}"
+			%small.counter
+				= project.tickets.size

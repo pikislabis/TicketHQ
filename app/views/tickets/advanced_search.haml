@@ -1,0 +1,42 @@
+-content_for :content do
+	.title
+		%h2 Búsqueda Avanzada
+	
+	-form_for @search do |f|
+		%table#form_search
+			%tbody
+				%tr
+					%td
+						=f.label :title_or_description_like, "Titulo o Descripción"
+						=f.text_field :title_or_description_like_all
+					%td
+						=f.label :user_id, 'Creador'
+						=f.collection_select :user_id, @users, :id, :name, :include_blank => true
+				%tr
+					%td
+						=f.label :project_id, "Proyecto"
+						=f.collection_select :project_id, @projects, :id, :name, :include_blank => true
+						=observe_field :search_project_id, :url => { :action => :update_status_menu },
+			                  							:update => :status_field_div,
+			                  							:with => :project_id
+					%td
+						#status_field_div
+							%label{:for => "status_id"} Estado
+							=collection_select :search, :status_id, @statuses, :id, :name, :include_blank => true
+				%tr
+					%td
+						=f.label :created_at_gte, "Fecha"
+						=f.date_select :created_at_gte, :include_blank => true 
+						= " - "
+						=f.date_select :created_at_lte, :include_blank => true
+					%td
+						=f.label :closed_is, "Cerrado"
+						=f.check_box :closed_is
+			
+		%p
+			=f.submit "Buscar", :class => "submit"
+	-if @tickets.blank?
+		No se han obtenido ningún ticket en la búsqueda.
+	-else
+		#tickets
+			= render :partial => "ticket_list"

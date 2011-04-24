@@ -1,0 +1,37 @@
+%script{ :type => "text/javascript" }
+	window.onload = function() {
+	document.getElementById('login').focus();
+	}
+=render :partial => 'layouts/top'
+
+.login
+	%h1 TicketHQ
+	.canvas
+		.flashes
+			-if flash[:error]
+				.flash_error
+					=flash[:error]
+			-if flash[:notice]
+				.flash_notice
+					=flash[:notice]
+		-form_tag session_path do
+			%ul
+				%li
+					= label_tag 'Usuario'
+					%span.input= text_field_tag 'login', @login
+	
+				%li
+					= label_tag 'Contraseña'
+					%span.input= password_field_tag 'password', nil
+		
+				%li.indent
+					.rememberMe
+						= check_box_tag 'remember_me', '1', @remember_me
+						Recordarme
+		
+				%li.button= submit_tag  'Entrar', :class => 'submit'
+	.mobile
+		-if mobile_device?
+			=link_to "Version completa", :mobile => 0
+		-elsif !mobile_device?
+			=link_to "Version movil", :mobile => 1

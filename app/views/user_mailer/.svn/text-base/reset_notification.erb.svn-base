@@ -1,0 +1,6 @@
+Se ha solicitado el cambio de contraseña para el usuario <%= @user.login %>
+
+Visite la siguiente dirección:
+  <%= @url %>
+  
+(Se mantendrá la contraseña anterior si no realiza ninguna acción.)

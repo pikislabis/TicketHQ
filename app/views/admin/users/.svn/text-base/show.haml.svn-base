@@ -1,0 +1,17 @@
+-content_for :content do
+	%h1= @user.name
+	%p
+		%strong Nick:
+		=@user.login
+	%p
+		%strong Email:
+		=@user.email
+	%p
+		%strong Grupos:
+		-for group in @user.groups
+			%br/
+			=group.name
+	%p
+		= link_to "Editar", edit_admin_user_path(@user)
+		= " | "
+		= link_to "Atras", admin_users_path

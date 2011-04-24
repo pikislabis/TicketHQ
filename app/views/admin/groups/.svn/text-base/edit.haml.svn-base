@@ -1,0 +1,34 @@
+-content_for :content do
+	%h1 Edición Grupo
+	- form_for :group, :url => admin_group_path, :html => { :method => :put } do |f|
+		%p
+			= label_tag 'Nombre'
+			= image_tag "square.gif", :class => 'help', :title => "Entre 3 y 15 caracteres"
+			%br/
+			= f.text_field :name
+		%h3= "Permisos"		
+		%p
+			= f.check_box :upgrade
+			Actualizar
+		%p
+			= f.check_box :remove
+			Borrar
+		%p
+			= f.check_box :make
+			Crear
+		%p
+			= f.check_box :observe
+			Observar
+		%p
+			= f.check_box :view
+			Ver
+		%h3= "Proyectos"
+		%p
+			-for project in Project.find(:all)
+				=check_box_tag "group[project_ids][]", project.id, @group.projects.include?(project)
+				=project.name
+				%br/
+		%p
+			= submit_tag 'Actualizar', :class => "submit"
+			= " | "
+			= link_to "Cancelar", :back

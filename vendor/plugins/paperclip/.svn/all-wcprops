@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip
+END
+paperclip.gemspec
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/paperclip.gemspec
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/LICENSE
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/Rakefile
+END
+README.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/README.rdoc
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/init.rb
+END

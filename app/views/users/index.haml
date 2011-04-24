@@ -1,0 +1,4 @@
+-content_for :content do
+	%h1 Tickets asignados
+	=link_to_function "Mostrar/Ocultar Proyectos Cerrados", visual_effect(:toggle_appear, "closed", :duration => 0.5)
+	=render :partial => 'tickets/assigned', :locals => {:tickets => @tickets_assigned.to_a}

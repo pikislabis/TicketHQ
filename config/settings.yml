@@ -1,0 +1,12 @@
+development: &non_production_settings
+  site_url: http://echalepienzo.homedns.org
+  site_name: TicketHQ
+  admin_email: tickethq.rails@gmail.com
+  
+test:
+  <<: *non_production_settings
+  
+production:
+    site_url: http://echalepienzo.homedns.org
+    site_name: TicketHQ
+    admin_email: tickethq.rails@gmail.com

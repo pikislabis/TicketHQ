@@ -1,0 +1,14 @@
+-content_for :content do
+	%h1= @project.name
+	%p
+		%strong Descripción:
+		= @project.info
+	%p
+		%strong Grupos:
+		-for group in @project.groups
+			%br/
+			=group.name
+	%p
+		= link_to "Editar", edit_admin_project_path(@project)
+		= " | "
+		= link_to "Atras", admin_projects_path

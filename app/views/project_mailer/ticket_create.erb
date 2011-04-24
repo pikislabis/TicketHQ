@@ -1,0 +1,13 @@
+<%=h @user.name %>, se ha creado un ticket nuevo en el proyecto <%=h Project.find(@ticket.project_id).name %> que está siguiendo.
+
+Ticket: <%=h @ticket.title %>
+Proyecto: <%=h Project.find(@ticket.project_id).name %>
+Descripción: <%=h @ticket.description %>
+Estado: <%=h @ticket.status.name %>
+Prioridad: <%=h @ticket.priority %>
+Creado por: <%=h User.find(@ticket.user_id).name %>
+Asignado a: <%=h @ticket.assigned_to.nil? ? nil : User.find(@ticket.assigned_to).name %>
+
+Puede visitar el ticket en la siguiente dirección:
+
+<%=h @url %>

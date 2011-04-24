@@ -1,0 +1,30 @@
+- form_for :ticket, :url => ticket_path, :html => { :method => :put, :multipart => true } do |f|
+	%h3 Comentario
+	=text_area :record, :text1, :rows => 5
+	%h3 Opciones
+	%table.record_options
+		%thead
+		%tbody
+			%tr
+				%th= label_tag 'Estado: '
+				-if Status.find(:all, :conditions => {:project_id => ticket.project_id}).nil?
+					%td= select :ticket, :status, @type_state
+				-else
+					%td= select :ticket, :status_id, Status.find(:all, :conditions => {:project_id => ticket.project_id}).map{|x| [x.name,x.id]}
+				%th= label_tag 'Prioridad: '
+				%td= select :ticket, :priority, @type_priorities
+			%tr
+				%th= label_tag 'Asignar a:'
+				%td= select :ticket, :assigned_to, [nil, ] + users.map {|u| [u.name, u.id]}
+				%th= label_tag 'Archivo: '
+				%td= file_field_tag :file
+			%tr
+				%th= label_tag 'Etiquetas:'
+				%td#labels{:colspan => 3}
+					%div=render :partial => 'label_edit', :collection => @ticket.labels[0..2]
+					%div=render :partial => 'label_edit', :collection => @ticket.labels[3..5]
+
+	%p
+		= submit_tag 'Actualizar', :class => "submit"
+		= " | "
+		= link_to "Cancelar", :back

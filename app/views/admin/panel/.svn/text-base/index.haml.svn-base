@@ -1,0 +1,7 @@
+-content_for :content do
+	%h1 Administrador de TicketHQ
+	%ul
+		%li
+			%p= link_to "Proyectos", "/admin/projects/"
+			%p= link_to "Grupos", "/admin/groups/"
+			%p= link_to "Usuarios", "/admin/users/"

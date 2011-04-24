@@ -1,0 +1,34 @@
+-content_for :content do
+	%h1 Grupos
+	%p= link_to "Nuevo Grupo", :controller => "admin/groups", :action => "new"
+	%table.lista_recursos
+		%thead
+			%tr
+				%th= "Nombre"
+				%th= "Proyectos"
+				%th{:colspan => "5"}
+					= "Permisos"
+				%th
+					= "Acciones"
+		%tbody
+		-for group in @groups
+			%tr
+				%td= group.name
+				%td
+					-for project in group.projects
+						= project.name
+						%br
+				%td{:class => group.view ? "negrita" : "clarita"}
+					= "Ver"
+				%td{:class => group.observe ? "negrita" : "clarita"}
+					= "Observar"
+				%td{:class => group.make ? "negrita" : "clarita"}
+					= "Crear"
+				%td{:class => group.upgrade ? "negrita" : "clarita"}
+					= "Modificar"
+				%td{:class => group.remove ? "negrita" : "clarita"}
+					= "Borrar"
+				%td.acciones
+					=link_to "Editar", edit_admin_group_path(group)
+					=link_to "Borrar", admin_group_path(group), opciones_borrado
+	=will_paginate @groups

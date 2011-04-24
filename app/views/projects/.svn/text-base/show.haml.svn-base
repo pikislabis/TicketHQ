@@ -1,0 +1,28 @@
+-content_for :content do
+	.title
+		%h2= "Tickets de #{@project.name}"
+		-if current_user.project_subs.include?(@project) and observe_project?(current_user, @project)	
+			=image_tag("eye.png", :size => "30x30", :title => "Está observando el proyecto.")
+	-if observe_project?(current_user,@project)
+		=link_to current_user.project_subs.include?(@project) ? 'Dejar de observar el proyecto' : 'Observar el proyecto', "observe_project/#{@project.id}"
+	#tickets
+		%table.lista_recursos
+			%thead
+				%tr
+					%th= "ID"
+					%th= "Resumen"
+					%th= "Estado"
+					%th= "Prioridad"
+			%tbody
+			-for ticket in @tickets
+				%tr
+					%td= "##{ticket.id}"
+					%td{:title => ticket.description}
+						.img_ticket
+							= image_tag ticket.user.gravatar_url(:size => 30)
+						.info_ticket
+							%h4= link_to ticket.title, ticket_path(ticket)
+							%span.user_ticket= ticket.user.name
+					%td= ticket.status.name
+					%td= ticket.priority
+		= will_paginate @tickets

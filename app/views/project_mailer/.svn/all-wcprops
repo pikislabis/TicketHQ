@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/96/trunk/tickethq/app/views/project_mailer
+END
+ticket_create.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/96/trunk/tickethq/app/views/project_mailer/ticket_create.erb
+END

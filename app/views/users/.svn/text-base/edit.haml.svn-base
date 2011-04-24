@@ -1,0 +1,29 @@
+-content_for :content do
+	%h1 Editar usuario #{@user.login}
+	- form_for :user, :url => user_path, :html => { :method => :put } do |f|
+		%p
+			=label_tag 'Nombre'
+			%br/
+			=f.text_field :name
+		%p
+			=label_tag 'login'
+			%br/
+			=f.text_field :login
+		%p
+			=label_tag 'email'
+			%br/
+			=f.text_field :email
+		%p
+			= label_tag 'password', 'Contraseña'
+			%br/
+			= f.password_field :password
+		%p
+			= label_tag 'password_confirmation', 'Confirmar Contraseña'
+			%br/
+			= f.password_field :password_confirmation
+		%p
+			= label_tag 'Grupos: '
+			-for group in Group.find(:all)
+				%br/
+				=group.name
+		%p= submit_tag 'Actualizar', :class => "submit"

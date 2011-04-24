@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/lib/paperclip/matchers
+END
+validate_attachment_size_matcher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/lib/paperclip/matchers/validate_attachment_size_matcher.rb
+END
+validate_attachment_content_type_matcher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/lib/paperclip/matchers/validate_attachment_content_type_matcher.rb
+END
+have_attached_file_matcher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/lib/paperclip/matchers/have_attached_file_matcher.rb
+END
+validate_attachment_presence_matcher.rb
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/!svn/ver/53/trunk/tickethq/vendor/plugins/paperclip/lib/paperclip/matchers/validate_attachment_presence_matcher.rb
+END

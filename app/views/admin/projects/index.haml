@@ -1,0 +1,23 @@
+-content_for :content do
+	%h1 Proyectos
+	%p= link_to "Nuevo proyecto", :controller => "admin/projects", :action => "new"
+	%table.lista_recursos
+		%thead
+			%tr
+				%th= "Nombre"
+				%th= "Activo"
+				%th= "Descripción"
+				%th
+					= "Acciones"
+		%tbody
+		-for project in @projects
+			%tr
+				%td.nombre= project.name
+				%td.center
+					= image_tag "#{!project.closed}.png"
+				%td= project.info
+				%td.acciones
+					=link_to "Editar", edit_admin_project_path(project)
+					=link_to "Borrar", admin_project_path(project), opciones_borrado
+	=will_paginate @projects
+

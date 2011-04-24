@@ -1,0 +1,22 @@
+-content_for :title do
+	Ticket nº
+	=@record.ticket.id
+
+-content_for :button_back do
+	=link_to "Atras", "/tickets/#{@record.ticket.id}", :class => "back"
+
+%h2 Descripción
+%ul
+	%li= @record.text1
+%h2 Detalle
+%ul
+	%li= @record.text2
+%h2 Usuario
+%ul
+	%li= @record.user.name
+
+-if @record.attaches.length != 0
+	%h2 Adjuntos
+	%ul
+		-@record.attaches.each do |x|
+			%li= link_to x.file_file_name, x.file.url, :target => '_blank'

@@ -1,0 +1,22 @@
+-content_for :title do
+	Nuevo Ticket
+
+-content_for :button_back do
+	=link_to "Atras", :back, :class => "back"
+
+- form_tag tickets_path, :name => 'new_ticket', :class => "form" do
+	%h2 Titulo
+	%ul
+		%li=text_field_tag 'ticket[title]', @ticket.title
+	%h2 Descripcion
+	%ul
+		%li=text_area_tag 'ticket[description]', @ticket.description
+		=hidden_field_tag 'ticket[user_id]', @ticket.user_id, :value => current_user.id
+	%h2 Proyecto
+	%ul
+		-for project in @projects
+			%li
+				=radio_button_tag 'ticket[project_id]', project.id
+				=project.name
+
+	=link_to "Entrar", "#", :onclick => "document.new_ticket.submit();", :class => "whiteButton submit"

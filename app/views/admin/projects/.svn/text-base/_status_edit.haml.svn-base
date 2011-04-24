@@ -1,0 +1,7 @@
+.status
+	-fields_for "project[status_attributes_edit][]", status_edit do |status_form|
+		%p
+			=status_form.text_field :name
+			=status_form.check_box :close
+			= " | "
+			=link_to_function "eliminar", "this.up('.status').remove()"

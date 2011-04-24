@@ -1,0 +1,8 @@
+-content_for :content do
+	%h1 Tickets
+	=link_to_function "Mostrar/Ocultar Proyectos Cerrados", visual_effect(:toggle_appear, "closed", :duration => 0.5)
+	-if @tickets.blank?
+		No se han obtenido ningún ticket en la búsqueda.
+	-else
+		#tickets
+			= render :partial => "ticket_list"

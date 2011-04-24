@@ -1,0 +1,24 @@
+#nav
+	%ul
+		%li.rounded= link_to 'Tickets', :controller => "/tickets", :action => 'index'
+		%li.rounded= link_to 'Nuevo ticket', :controller => "/tickets", :action => 'new'
+		%li.search
+			-form_tag tickets_path, :method => 'get' do
+				%p
+					=text_field_tag :search
+					=submit_tag "Buscar"
+		%li= link_to 'Busq avanzada', '/search'
+		-if current_user.admin?		
+			%li.rounded.right= link_to 'Admin', :controller => "admin/panel", :action => 'index'
+		%li.rounded.right= link_to 'Proyectos', :controller=> "/projects", :action => 'index'
+
+.flashes
+	-if flash[:error]
+		.flash_error
+			=flash[:error]
+	-if flash[:notice]
+		.flash_notice
+			=flash[:notice]
+
+#content-body
+	=yield :content

@@ -1,0 +1,149 @@
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/svn/!svn/ver/125/trunk/tickethq/db/migrate
+END
+20100326044301_create_records.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/28/trunk/tickethq/db/migrate/20100326044301_create_records.rb
+END
+20100607110631_create_groups_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/!svn/ver/30/trunk/tickethq/db/migrate/20100607110631_create_groups_users.rb
+END
+20100704104055_add_reset_code_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/46/trunk/tickethq/db/migrate/20100704104055_add_reset_code_to_user.rb
+END
+20100722181922_create_project_subscribes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/85/trunk/tickethq/db/migrate/20100722181922_create_project_subscribes.rb
+END
+20100715114531_rename_attachments_to_files.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/75/trunk/tickethq/db/migrate/20100715114531_rename_attachments_to_files.rb
+END
+20100326044142_create_tickets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/9/trunk/tickethq/db/migrate/20100326044142_create_tickets.rb
+END
+20110413172428_add_close_to_status.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/!svn/ver/134/trunk/tickethq/db/migrate/20110413172428_add_close_to_status.rb
+END
+20101021135845_add_closed_to_ticket.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/125/trunk/tickethq/db/migrate/20101021135845_add_closed_to_ticket.rb
+END
+20100614114628_add_project_to_ticket.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/26/trunk/tickethq/db/migrate/20100614114628_add_project_to_ticket.rb
+END
+20100705221007_add_attachments_file_to_attachment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/!svn/ver/53/trunk/tickethq/db/migrate/20100705221007_add_attachments_file_to_attachment.rb
+END
+20100326044421_create_attachments.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/53/trunk/tickethq/db/migrate/20100326044421_create_attachments.rb
+END
+20100427215739_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/16/trunk/tickethq/db/migrate/20100427215739_create_users.rb
+END
+20100627180700_add_admin_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/38/trunk/tickethq/db/migrate/20100627180700_add_admin_user.rb
+END
+20100818113855_create_labels.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/108/trunk/tickethq/db/migrate/20100818113855_create_labels.rb
+END
+20110413175410_drop_closed_to_ticket.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/134/trunk/tickethq/db/migrate/20110413175410_drop_closed_to_ticket.rb
+END
+20100728121146_create_statuses.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/91/trunk/tickethq/db/migrate/20100728121146_create_statuses.rb
+END
+20100607110347_create_groups.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/23/trunk/tickethq/db/migrate/20100607110347_create_groups.rb
+END
+20100607115605_add_admin_to_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/22/trunk/tickethq/db/migrate/20100607115605_add_admin_to_user.rb
+END
+20100722181934_create_ticket_subscribes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/85/trunk/tickethq/db/migrate/20100722181934_create_ticket_subscribes.rb
+END
+20100801155322_change_state_column_ticket.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/!svn/ver/96/trunk/tickethq/db/migrate/20100801155322_change_state_column_ticket.rb
+END
+20100708072053_remove_columns_attachment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/60/trunk/tickethq/db/migrate/20100708072053_remove_columns_attachment.rb
+END
+20100607110255_create_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/21/trunk/tickethq/db/migrate/20100607110255_create_projects.rb
+END
+20100607110556_create_groups_projects.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/30/trunk/tickethq/db/migrate/20100607110556_create_groups_projects.rb
+END
+20100715120739_rename_files_to_attaches.rb
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/!svn/ver/76/trunk/tickethq/db/migrate/20100715120739_rename_files_to_attaches.rb
+END

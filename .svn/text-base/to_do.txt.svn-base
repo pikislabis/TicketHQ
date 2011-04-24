@@ -1,0 +1,13 @@
+Once finished, don't forget to:
+
+- Add an observer to config/environment.rb
+    config.active_record.observers = :user_observer
+- Install the acts_as_state_machine plugin:
+    svn export http://elitists.textdriven.com/svn/plugins/acts_as_state_machine/trunk vendor/plugins/acts_as_state_machine
+- Add routes to these resources. In config/routes.rb, insert routes like:
+    map.signup '/signup', :controller => 'users', :action => 'new'
+    map.login  '/login',  :controller => 'sessions', :action => 'new'
+    map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+    map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  and modify the map.resources :users line to include these actions:
+    map.resources :users, :member => { :suspend => :put, :unsuspend => :put, :purge => :delete }

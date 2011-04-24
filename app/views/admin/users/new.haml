@@ -1,0 +1,38 @@
+-content_for :content do
+	%h1 Nuevo usuario
+	- form_for :user, :url => admin_users_path do |f|
+		%p
+			= label_tag 'Nombre'
+			%br/
+			= f.text_field :name		
+		%p
+			= label_tag 'login'
+			= image_tag "square.gif", :class => 'help', :title => "Entre 3 y 10 caracteres"
+			%br/
+			= f.text_field :login
+		%p
+			= label_tag 'email'
+			%br/
+			= f.text_field :email
+		%p
+			= label_tag 'password'
+			= image_tag "square.gif", :class => 'help', :title => "Al menos 6 caracteres"
+			%br/
+			= f.password_field :password
+		%p
+			= label_tag 'password_confirmation', 'Confirmar Password'
+			%br/
+			= f.password_field :password_confirmation
+
+		%p
+			= label_tag 'Grupos'
+			-for group in Group.find(:all)
+				%br/
+				=check_box_tag "user[group_ids][]", group.id
+				=group.name
+			
+		%p
+			= submit_tag 'Crear', :class => "submit"
+			= " | "
+			= link_to "Atras", admin_users_path
+		

@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/81/trunk/tickethq/app/views/admin/users
+END
+show.haml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/63/trunk/tickethq/app/views/admin/users/show.haml
+END
+edit.haml
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/63/trunk/tickethq/app/views/admin/users/edit.haml
+END
+index.haml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/81/trunk/tickethq/app/views/admin/users/index.haml
+END
+new.haml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/63/trunk/tickethq/app/views/admin/users/new.haml
+END

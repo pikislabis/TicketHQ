@@ -1,0 +1,10 @@
+ El mail que ha enviado para dar de alta una incidencia es incorrecto.
+
+ El formato del asunto debe ser:
+
+ [proyecto_id] Titulo del ticket
+
+ Los proyectos en los que puede dar de alta tickets son:
+ <% @projects.each do |x| %>
+ 	<%=h x.id %> - <%=h x.name %>
+ <% end %>

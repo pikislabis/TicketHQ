@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/114/trunk/tickethq/app/views/admin/projects
+END
+show.haml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/63/trunk/tickethq/app/views/admin/projects/show.haml
+END
+_status.haml
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/135/trunk/tickethq/app/views/admin/projects/_status.haml
+END
+edit.haml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/135/trunk/tickethq/app/views/admin/projects/edit.haml
+END
+index.haml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/135/trunk/tickethq/app/views/admin/projects/index.haml
+END
+_status_edit.haml
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/135/trunk/tickethq/app/views/admin/projects/_status_edit.haml
+END
+new.haml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/135/trunk/tickethq/app/views/admin/projects/new.haml
+END

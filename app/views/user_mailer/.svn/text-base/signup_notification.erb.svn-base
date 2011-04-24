@@ -1,0 +1,8 @@
+ Su cuenta ha sido creada.
+
+  Usuario: <%=h @user.login %>
+  Contraseña: <%=h @user.password %>
+
+Visite esta dirección para activar su cuenta:
+
+  <%=h @url %>

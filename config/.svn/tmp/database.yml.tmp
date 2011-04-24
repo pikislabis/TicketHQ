@@ -1,0 +1,52 @@
+# MySQL.  Versions 4.1 and 5.0 are recommended.
+#
+#
+# Be sure to use new-style password hashing:
+#   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
+development:
+  adapter: mysql
+  database: tickethq_development
+  host: localhost
+  username: root
+<<<<<<< .mine
+  password: 34058417
+#  pool: 5
+#  timeout: 5000
+=======
+  password: 34058417
+  pool: 5
+  timeout: 5000
+>>>>>>> .r10
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+<<<<<<< .mine
+=======
+#test:
+#  adapter: jdbcmysql
+#  database: db/development.sqlite3_test
+#  pool: 5
+#  timeout: 5000
+>>>>>>> .r10
+
+<<<<<<< .mine
+#test:
+#  adapter: jdbcmysql
+#  database: db/development.sqlite3_test
+#  pool: 5
+#  timeout: 5000
+=======
+#production:
+#  adapter: jdbcmysql
+#  database: db/development.sqlite3_production
+#  pool: 5
+#  timeout: 5000
+>>>>>>> .r10
+
+#production:
+#  adapter: jdbcmysql
+#  database: db/development.sqlite3_production
+#  pool: 5
+#  timeout: 5000
+

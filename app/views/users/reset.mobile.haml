@@ -1,0 +1,19 @@
+=render :partial => 'layouts/top'
+
+.current
+	.toolbar
+		%h1 TicketHQ Movil
+	-unless flash.empty?
+		.info
+			-flash.each do |name, msg|
+				=content_tag :div, msg, :id => "flash_#{name}"
+	-form_tag "/reset/#{params[:reset_code]}", :name => "user", :class => "form", :id => 'user' do
+		%ul
+			%li=password_field_tag 'user[password]', :value => "Contraseña", :onclick => "clickclear(this, 'Contraseña')", :onblur => "clickrecall(this,'Contraseña')"
+
+			%li=password_field_tag 'user[password_confirmation]', :value => "Repita Contraseña", :onclick => "clickclear(this, 'Repita Contraseña')", :onblur => "clickrecall(this,'Repita Contraseña')"			
+				
+		=link_to "Entrar", "#", :onclick => "document.user.submit();", :class => "whiteButton submit"
+
+	.info
+		%p=link_to "Version Completa", root_url(:mobile => 0)

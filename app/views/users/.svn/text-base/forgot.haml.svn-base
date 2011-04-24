@@ -1,0 +1,24 @@
+=render :partial => 'layouts/top'
+
+.login
+	%h1 TicketHQ
+	.canvas
+		.flashes
+			-if flash[:error]
+				.flash_error
+					=flash[:error]
+			-if flash[:notice]
+				.flash_notice
+					=flash[:notice]
+		-form_for :user do |f|
+			%ul
+				%li
+					= label_tag 'E-mail: '
+					%span.input= f.text_field :email
+
+				%li.button= submit_tag  'Enviar', :class => 'submit'
+	.mobile
+		-if mobile_device?
+			=link_to "Version completa", :mobile => 0
+		-elsif !mobile_device?
+			=link_to "Version movil", :mobile => 1

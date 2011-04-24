@@ -1,0 +1,21 @@
+-content_for :content do
+	%h1= @group.name
+	%p
+		="Actualizar"
+		=@group.upgrade
+	%p
+		="Borrar"
+		=@group.remove
+	%p
+		="Crear"
+		=@group.make
+	%p
+		="Observar"
+		=@group.observe
+	%p
+		="Ver"
+		=@group.view
+	%p
+		= link_to "Editar", edit_admin_group_path(@group)
+		= " | "
+		= link_to "Atras", admin_groups_path

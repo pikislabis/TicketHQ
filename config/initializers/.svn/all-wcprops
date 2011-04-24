@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/119/trunk/tickethq/config/initializers
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/3/trunk/tickethq/config/initializers/inflections.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/3/trunk/tickethq/config/initializers/session_store.rb
+END
+site_keys.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/16/trunk/tickethq/config/initializers/site_keys.rb
+END
+load_config.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/35/trunk/tickethq/config/initializers/load_config.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/3/trunk/tickethq/config/initializers/backtrace_silencers.rb
+END
+new_rails_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/119/trunk/tickethq/config/initializers/new_rails_defaults.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/25/trunk/tickethq/config/initializers/mime_types.rb
+END

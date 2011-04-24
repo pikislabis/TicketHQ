@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/131/trunk/tickethq/app/views/tickets
+END
+new.mobile.haml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/107/trunk/tickethq/app/views/tickets/new.mobile.haml
+END
+show.haml
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/131/trunk/tickethq/app/views/tickets/show.haml
+END
+_label_edit.haml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/111/trunk/tickethq/app/views/tickets/_label_edit.haml
+END
+_add_record.haml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/131/trunk/tickethq/app/views/tickets/_add_record.haml
+END
+edit.haml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/73/trunk/tickethq/app/views/tickets/edit.haml
+END
+show.mobile.haml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/107/trunk/tickethq/app/views/tickets/show.mobile.haml
+END
+index.haml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/135/trunk/tickethq/app/views/tickets/index.haml
+END
+update_status_menu.haml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/!svn/ver/123/trunk/tickethq/app/views/tickets/update_status_menu.haml
+END
+new.haml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/111/trunk/tickethq/app/views/tickets/new.haml
+END
+advanced_search.haml
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/128/trunk/tickethq/app/views/tickets/advanced_search.haml
+END
+_assigned.haml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/135/trunk/tickethq/app/views/tickets/_assigned.haml
+END
+_ticket_list.haml
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/135/trunk/tickethq/app/views/tickets/_ticket_list.haml
+END
+_label.haml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/111/trunk/tickethq/app/views/tickets/_label.haml
+END

@@ -1,0 +1,16 @@
+=render :partial => 'layouts/top'
+
+.current
+	.toolbar
+		%h1 TicketHQ Movil
+	-unless flash.empty?
+		.info
+			-flash.each do |name, msg|
+				=content_tag :div, msg, :id => "flash_#{name}"	
+	-form_tag '/forgot_password', :name => "user", :class => "form", :id => 'user' do
+		%ul
+			%li=text_field_tag 'user[email]', @email, :value => "Email", :onclick => "clickclear(this, 'Email')", :onblur => "clickrecall(this,'Email')"
+		=link_to "Entrar", "#", :onclick => "document.user.submit();", :class => "whiteButton submit"
+
+	.info
+		%p=link_to "Version Completa", root_url(:mobile => 0)

@@ -1,0 +1,20 @@
+-content_for :content do
+	%h1 Editar Proyecto
+	- form_for :project, :url => admin_project_path, :html => { :method => :put } do |f|
+		%p
+			= label_tag 'Nombre'
+			%br/
+			= f.text_field :name		
+		%p
+			= label_tag 'Descripcion'
+			%br/
+			= f.text_area :info, :rows => 7
+		#status_block
+			#statuses
+				Marque los estados finales
+				=render :partial => 'status_edit', :collection => @project.statuses
+			=add_status_link "Añadir estado"
+		%p
+			= submit_tag 'Actualizar', :class => "submit"
+			= " | "
+			= link_to "Cancelar", :back

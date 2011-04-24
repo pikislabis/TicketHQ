@@ -1,0 +1,14 @@
+#header
+	-if logged_in?
+		%ul#user-bar-greeting
+			%li= link_to "Mi Cuenta", "/users/#{current_user.id}/edit", {:title => "Ir a Mi Cuenta"}
+			%li= link_to "Desconectar", '/logout', { :title => "Salir del sistema" }
+	-else
+		%ul#user-bar-greeting
+			%li No está conectado
+			%li
+				= link_to "Acceder",  login_path,  { :title => "Acceder" }
+				\/
+				\#{link_to "Registrarse", signup_path, { :title => "Crear una cuenta" }}
+	-if logged_in?
+		%h1= link_to User.find(current_user).name, :controller => "/users", :action => "index"

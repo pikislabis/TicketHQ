@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/107/trunk/tickethq/app/views/users
+END
+show.haml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/24/trunk/tickethq/app/views/users/show.haml
+END
+forgot.haml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/46/trunk/tickethq/app/views/users/forgot.haml
+END
+reset.haml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/46/trunk/tickethq/app/views/users/reset.haml
+END
+edit.haml
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/42/trunk/tickethq/app/views/users/edit.haml
+END
+forgot.mobile.haml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/107/trunk/tickethq/app/views/users/forgot.mobile.haml
+END
+index.haml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/135/trunk/tickethq/app/views/users/index.haml
+END
+reset.mobile.haml
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/107/trunk/tickethq/app/views/users/reset.mobile.haml
+END

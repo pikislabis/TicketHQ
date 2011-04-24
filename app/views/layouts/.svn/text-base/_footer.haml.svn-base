@@ -1,0 +1,5 @@
+#footer
+	-if mobile_device?
+		=link_to "Version completa", :mobile => 0
+	-elsif !mobile_device?
+		=link_to "Version movil", :mobile => 1

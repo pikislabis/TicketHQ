@@ -1,0 +1,31 @@
+-content_for :content do
+	%h1 Nuevo Proyecto
+	- form_for :project, :url => admin_projects_path do |f|
+		%p
+			= label_tag 'Nombre'
+			= image_tag "square.gif", :class => 'help', :title => "Entre 3 y 15 caracteres"
+			%br/
+			= f.text_field :name		
+		%p
+			= label_tag 'Descripcion'
+			%br/
+			= f.text_area :info, :rows => 7
+		%p
+			=label_tag 'Estados'
+			%br/
+			=radio_button_tag "statuses", "default", true, options = {:onclick => "$('status_block').hide(); return true;"}
+			Por defecto
+			%br/
+			=radio_button_tag "statuses", "custom", false, options = {:onclick => "$('status_block').show(); return true;"}
+			Configurables
+		
+		#status_block{:style => "display:none;"}
+			#statuses
+				Marque los estados finales
+				=render :partial => 'status', :collection => @project.statuses
+			=add_status_link "Añadir estado"
+
+		%p
+			= submit_tag 'Crear', :class => 'submit'
+			= " | "
+			= link_to "Atras", admin_projects_path

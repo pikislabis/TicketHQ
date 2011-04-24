@@ -1,0 +1,28 @@
+=render :partial => 'layouts/top'
+
+.login
+	%h1 TicketHQ
+	.canvas
+		.flashes
+			-if flash[:error]
+				.flash_error
+					=flash[:error]
+			-if flash[:notice]
+				.flash_notice
+					=flash[:notice]
+		-form_for :user do |f|
+			%ul
+				%li
+					=label_tag 'Contraseña: '
+					%span.input= f.password_field :password
+					  
+				%li      
+					=label_tag 'Confirmar Contraseña: '
+					%span.input= f.password_field :password_confirmation
+					     
+				%li.button= submit_tag  'Enviar', :class => 'submit'
+	.mobile
+		-if mobile_device?
+			=link_to "Version completa", :mobile => 0
+		-elsif !mobile_device?
+			=link_to "Version movil", :mobile => 1

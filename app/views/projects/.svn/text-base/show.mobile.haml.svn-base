@@ -1,0 +1,10 @@
+-content_for :title do
+	=@project.name
+
+-content_for :button_back do
+	=link_to "Atras", projects_path, :class => "back" unless current_page? root_url
+
+%ul
+	-for ticket in @project.tickets
+		%li.arrow
+			=link_to ticket.title, "/tickets/#{ticket.id}"

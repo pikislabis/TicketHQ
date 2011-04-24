@@ -1,0 +1,33 @@
+-content_for :content do
+	%h1 Usuario
+	%p= link_to "Nuevo Usuario", :controller => "admin/users", :action => "new"
+	%table.lista_recursos
+		%thead
+			%tr
+				%th= ""
+				%th= "Login"
+				%th= "Nombre"
+				%th= "E-mail"
+				%th= "Grupos"
+				%th= "Activo"
+				%th= "Administrador"
+				%th= "Acciones"
+		%tbody
+		-for user in @users
+			%tr
+				%td= gravatar_for user, {:size => 30}
+				%td= user.login
+				%td= user.name
+				%td= user.email
+				%td
+					-for group in user.groups
+						=group.name
+						%br
+				%td.center
+					= image_tag "#{user.state == 'active'}.png"
+				%td.center
+					= image_tag "#{user.admin}.png"
+				%td.acciones
+					=link_to "Editar", edit_admin_user_path(user)
+					=link_to "Borrar", admin_user_path(user), opciones_borrado
+	=will_paginate @users

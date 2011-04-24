@@ -1,0 +1,66 @@
+-content_for :content do
+	.title	
+		%h2= @ticket.title
+		-if current_user.ticket_subs.include?(@ticket) and observe_project?(current_user,@ticket.project)
+			=image_tag("eye.png", :size => "30x30", :title => "Está observando el ticket.")
+	-if observe_project?(current_user,@ticket.project)
+		=link_to current_user.ticket_subs.include?(@ticket) ? 'Dejar de observar el ticket' : 'Observar el ticket', "observe_ticket/#{@ticket.id}"
+	.resume_ticket
+		.info
+			%strong Estado:
+			=@ticket.status.name
+		.info
+			%strong Prioridad:
+			=@ticket.priority
+		.info
+			%strong Asignado a:
+			-if @ticket.assigned_to.nil?
+				= "----"
+			-else
+				=User.find(@ticket.assigned_to).name
+		.info
+			%strong Fecha:
+			=@ticket.created_at.strftime("%d/%m/%Y")
+		%hr
+		.info_all
+			.info1
+				%h3= @ticket.user.name
+				= image_tag @ticket.user.gravatar_url
+			.resume
+				%p= @ticket.description
+				.acciones.acciones_resume
+					- if (current_user.id == @ticket.user_id or current_user.admin?)
+						=link_to "Editar", edit_ticket_path(@ticket)
+					- if @delete
+						=link_to "Borrar", ticket_path(@ticket), opciones_borrado
+				.labels
+					%strong Etiquetas: 
+					=@ticket.labels.map{|x| x.name unless x.name.blank?}.compact.join(", ")
+			
+	%h3 Cambios
+	%table.lista_recursos
+		%thead
+			%tr
+				%th= "ID"
+				%th= "Usuario"
+				%th= "Descripcion"
+				%th= "Detalle"
+				%th= "Ficheros"
+				%th= "Fecha"
+		%tbody
+		-for record in @records
+			%tr
+				%td= "##{record.id}"
+				%td
+					= image_tag record.user.gravatar_url(:size => 30)
+					.name= record.user.login
+				%td= record.text1
+				%td= record.text2
+				%td
+					%ul
+						-for x in record.attaches
+							%li= link_to x.file_file_name, x.file.url, :target => '_blank'
+				%td= record.created_at.strftime("%d/%m/%Y")
+	= will_paginate @records
+	- if @edit
+		=render :partial => 'add_record', :locals => {:ticket => @ticket, :users => @users}

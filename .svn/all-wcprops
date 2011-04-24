@@ -1,0 +1,39 @@
+K 26
+svn:wc:ra_dav:activity-url
+V 14
+/svn/!svn/act/
+K 25
+svn:wc:ra_dav:version-url
+V 32
+/svn/!svn/ver/133/trunk/tickethq
+END
+to_do.txt
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/15/trunk/tickethq/to_do.txt
+END
+colors.txt
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/svn/!svn/ver/20/trunk/tickethq/colors.txt
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/3/trunk/tickethq/Rakefile
+END
+Capfile
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/!svn/ver/69/trunk/tickethq/Capfile
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/svn/!svn/ver/3/trunk/tickethq/README
+END

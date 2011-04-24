@@ -1,0 +1,23 @@
+-if tickets.nil? or tickets.length == 0
+	%p No se ha encontrado ningun ticket asignado.
+-else
+	#tickets
+		%table.lista_recursos
+			%thead
+				%tr
+					%th= "ID"
+					%th= "Resumen"
+					%th= "Estado"
+					%th= "Prioridad"
+			%tbody
+			-for ticket in @tickets_assigned
+				%tr{:id => "#{ticket.status.close ? 'closed' : 'opened' }"}
+					%td= "##{ticket.id}"
+					%td{:title => ticket.description}
+						.img_ticket
+							= image_tag ticket.user.gravatar_url(:size => 30)
+						.info_ticket
+							%h4= link_to ticket.title, ticket_path(ticket)
+							%span.user_ticket= ticket.user.name
+					%td= ticket.status.name
+					%td= ticket.priority
