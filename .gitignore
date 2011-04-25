@@ -1,4 +1,4 @@
 .DS_Store
-config/database.yml
-config/environment.rb
 log/*
+.idea
+TicketHQ.ids
