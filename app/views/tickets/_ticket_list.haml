@@ -9,16 +9,19 @@
 			%th= "Fecha"
 	%tbody
 		-for ticket in @tickets
-			%tr{:id => "#{ticket.status.close ? 'closed' : 'opened' }", :style => "#{ticket.status.close ? 'display: none' : '' }"}
-				%td= "##{ticket.id}"
-				%td{:title => ticket.description}
-					.img_ticket
-						= image_tag ticket.user.gravatar_url(:size => 30)
-					.info_ticket
-						%h4{:class => "#{ticket.status.close ? 'closed' : 'opened' }"}= link_to ticket.title, ticket_path(ticket)
-						%span.user_ticket= ticket.user.name
-				%td= ticket.project.name
-				%td= ticket.status.name
-				%td= ticket.priority
-				%td= ticket.created_at.strftime("%d/%m/%Y")
+			- if !@show_closed
+				%tr{:id => "#{ticket.status.close ? 'closed' : 'opened' }", :style => "#{ticket.status.close ? 'display: none' : '' }"}
+			- else
+				%tr	
+			%td= "##{ticket.id}"
+			%td{:title => ticket.description}
+				.img_ticket
+					= image_tag ticket.user.gravatar_url(:size => 30)
+				.info_ticket
+					%h4{:class => "#{ticket.status.close ? 'closed' : 'opened' }"}= link_to ticket.title, ticket_path(ticket)
+					%span.user_ticket= ticket.user.name
+			%td= ticket.project.name
+			%td= ticket.status.name
+			%td= ticket.priority
+			%td= ticket.created_at.strftime("%d/%m/%Y")
 	=will_paginate @tickets

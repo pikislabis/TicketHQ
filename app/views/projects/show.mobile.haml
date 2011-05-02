@@ -5,6 +5,6 @@
 	=link_to "Atras", projects_path, :class => "back" unless current_page? root_url
 
 %ul
-	-for ticket in @project.tickets
+	-for ticket in @project.tickets.select{|p| !p.status.close}
 		%li.arrow
 			=link_to ticket.title, "/tickets/#{ticket.id}"

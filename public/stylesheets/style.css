@@ -461,7 +461,7 @@ div.label {
 
 .project_index{
     font-size: 19px;
-	margin-left: 30px;
+	margin: 10px 0px 10px 0px;
 }
 
 .project_info{
@@ -491,4 +491,18 @@ table#form_search{
 .closed a{
 	text-decoration: line-through;
 	color: green;
+}
+
+.counter {
+	font-size: 15px;
+	line-height: 5px;
+	font-weight: bold;
+	background: #38B;
+	color: white;
+	-webkit-border-radius: 11px;
+	padding: 3px 10px 3px 10px;
+	display: inline;
+	width: auto;
+	margin-top: -22px;
+	margin-right: 10px;
 }

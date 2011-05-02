@@ -6,4 +6,4 @@
 		%li.arrow
 			=link_to project.name, "/projects/#{project.id}"
 			%small.counter
-				= project.tickets.size
+				= project.tickets.select{|p| !p.status.close}.size

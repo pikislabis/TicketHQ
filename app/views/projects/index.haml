@@ -3,12 +3,14 @@
 	-if @projects.blank?
 		No hay proyectos disponibles
 	-else
-		- @projects.each do |project|
-			.project_index
-				= link_to project.name, project_path(project)
+		%ul
+			- @projects.each do |project|
+				%li.project_index
+					%small.counter= project.tickets.select{|p| !p.status.close}.size
+					= link_to project.name, project_path(project)
+					- unless project.info.blank?
+						%span.project_info
+							= link_to_function 'Más info', visual_effect(:toggle_appear, "project_info_#{project.id}", :duration => 0.5)
 				- unless project.info.blank?
-					%span.project_info
-						= link_to_function 'Más info', visual_effect(:toggle_appear, "project_info_#{project.id}", :duration => 0.5)
-			- unless project.info.blank?
-				.box{ :id => "project_info_#{h project.id}", :style => "display: none;" }
-					= project.info
+					.box{ :id => "project_info_#{h project.id}", :style => "display: none;" }
+						= project.info

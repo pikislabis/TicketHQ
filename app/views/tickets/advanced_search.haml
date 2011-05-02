@@ -31,7 +31,7 @@
 						=f.date_select :created_at_lte, :include_blank => true
 					%td
 						=f.label :closed_is, "Cerrado"
-						=f.check_box :closed_is
+						=f.check_box :status_close_is
 			
 		%p
 			=f.submit "Buscar", :class => "submit"
@@ -39,4 +39,4 @@
 		No se han obtenido ningún ticket en la búsqueda.
 	-else
 		#tickets
-			= render :partial => "ticket_list"
+			= render :partial => "ticket_list", :locals => {:show_closed => true}
