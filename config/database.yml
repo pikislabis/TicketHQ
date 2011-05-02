@@ -5,10 +5,10 @@
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
   adapter: mysql
-  database: tickethq_development
+  database: tickethq
   host: localhost
   username: root
-  password: ######
+  password: #####
 #  pool: 5
 #  timeout: 5000
 
@@ -22,9 +22,9 @@ development:
 #  pool: 5
 #  timeout: 5000
 
-production:
-  adapter: mysql
-  database: tickethq
-  host: localhost
-  username: tickethq
-  password: ######
+#production:
+#  adapter: mysql
+#  database: tickethq
+#  host: localhost
+#  username: tickethq
+#  password: ######
