@@ -108,9 +108,9 @@ label{
 
 
 .canvas label{
-	text-align: right;
+	text-align: left;
 	margin-right: 10px;
-	width: 70px;
+	width: 100%;
 	font-size: 12px;
 	float: left;
 	display: block;
@@ -302,6 +302,23 @@ table.lista_recursos{
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	padding: 4px 10px 4px 5px;
+}
+
+.ticket_id{
+	text-align: center;
+	width: 40px;
+}
+
+.ticket_estado{
+	width: 100px;
+}
+
+.ticket_prioridad{
+	width: 100px;
+}
+
+.ticket_date{
+	width: 100px;
 }
 
 td.nombre{

@@ -11,14 +11,15 @@
 		%table.lista_recursos
 			%thead
 				%tr
-					%th= "ID"
+					%th.ticket_id= "ID"
 					%th= "Resumen"
-					%th= "Estado"
-					%th= "Prioridad"
+					%th.ticket_estado= "Estado"
+					%th.ticket_prioridad= "Prioridad"
+					%th.ticket_date= "Fecha"
 			%tbody
 			-for ticket in @tickets
 				%tr{:id => "#{ticket.status.close ? 'closed' : 'opened' }", :style => "#{ticket.status.close ? 'display: none' : '' }"}
-					%td= "##{ticket.id}"
+					%td.ticket_id= "##{ticket.id}"
 					%td{:title => ticket.description}
 						.img_ticket
 							= image_tag ticket.user.gravatar_url(:size => 30)
@@ -27,4 +28,5 @@
 							%span.user_ticket= ticket.user.name
 					%td= ticket.status.name
 					%td= ticket.priority
+					%td= ticket.created_at.strftime("%d/%m/%Y")
 		= will_paginate @tickets

@@ -2,9 +2,13 @@
 	=@project.name
 
 -content_for :button_back do
-	=link_to "Atras", projects_path, :class => "back" unless current_page? root_url
+	=link_to "Atras", projects_path, :class => "back"
+	
+-content_for :button_new_edit do
+	=link_to "Nuevo", new_project_ticket_path(@project.id), :class => "button"
 
 %ul
-	-for ticket in @project.tickets.select{|p| !p.status.close}
+	-for ticket in @tickets.select{|p| !p.status.close}
 		%li.arrow
 			=link_to ticket.title, "/tickets/#{ticket.id}"
+= will_paginate @tickets, :class => "will_paginate", :previous_label => "<", :next_label => ">"

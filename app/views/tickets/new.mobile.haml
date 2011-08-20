@@ -1,5 +1,9 @@
--content_for :title do
-	Nuevo Ticket
+-if @project.nil?
+	-content_for :title do
+		Nuevo Ticket
+-else
+	-content_for :title do
+		=@project.name
 
 -content_for :button_back do
 	=link_to "Atras", :back, :class => "back"
@@ -12,11 +16,14 @@
 	%ul
 		%li=text_area_tag 'ticket[description]', @ticket.description
 		=hidden_field_tag 'ticket[user_id]', @ticket.user_id, :value => current_user.id
-	%h2 Proyecto
-	%ul
-		-for project in @projects
-			%li
-				=radio_button_tag 'ticket[project_id]', project.id
-				=project.name
+	-if @project.nil?
+		%h2 Proyecto
+		%ul
+			-for project in @projects
+				%li
+					=radio_button_tag 'ticket[project_id]', project.id
+					=project.name
+	-else
+		=hidden_field_tag 'ticket[project_id]', @ticket.project_id, :value => @project.id
 
-	=link_to "Entrar", "#", :onclick => "document.new_ticket.submit();", :class => "whiteButton submit"
+	=link_to "Guardar", "#", :onclick => "document.new_ticket.submit();", :class => "whiteButton submit"

@@ -70,9 +70,16 @@ class TicketsController < ApplicationController
     if Project.proyectos(current_user,"make").length == 0
 		  flash[:error] = "El usuario no tiene privilegios para crear tickets en ningun proyecto."
 		  redirect_back_or_default('/')
-		end
+		elsif !params[:project_id].blank? and !Project.proyectos(current_user,"make").include? Project.find(params[:project_id])
+		  flash[:error] = "El usuario no tiene privilegios para crear tickets en el proyecto."
+		  redirect_back_or_default('/')
+		end  
 		@ticket = Ticket.new
 		@projects = Project.proyectos(current_user,"make")
+		if !params[:project_id].blank?
+		  @project = Project.find(params[:project_id])
+		  @ticket.project_id = params[:project_id]
+		end  
 		6.times {@ticket.labels.build}
   end
 

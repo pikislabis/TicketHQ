@@ -4,6 +4,9 @@
 
 -content_for :button_back do
 	=link_to "Atras", "/projects/#{@ticket.project.id}", :class => "back"
+	
+-content_for :button_new_edit do
+	=link_to "Nuevo", "/tickets/new", :class => "button" unless current_page? "/tickets/new"
 
 %h2 Titulo
 %ul
@@ -14,6 +17,9 @@
 %h2 Descripcion
 %ul
 	%li= @ticket.description
+%h2 Proyecto
+%ul
+	%li= @ticket.project.name
 %h2 Estado
 %ul
 	%li= @ticket.status.name

@@ -1,6 +1,9 @@
 -content_for :title do
 	Proyectos
 
+-content_for :button_new_edit do
+	=link_to "Nuevo", "/tickets/new", :class => "button" unless current_page? "/tickets/new"
+
 %ul
 	-for project in @projects
 		%li.arrow

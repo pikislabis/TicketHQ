@@ -17,6 +17,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :tickets
   map.resources :records
   map.resource :session
+  
+  map.resources :projects do |p|
+    p.resources :tickets
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
 

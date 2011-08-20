@@ -1,13 +1,25 @@
 %title TicketHQ
-=stylesheet_link_tag "jqtouch/jqtouch.min.css", "jqtouch/themes/apple/theme.min.css"
+=stylesheet_link_tag "jqtouch/jqtouch.min.css", "jqtouch/themes/apple/theme.min.css", "mobile"
 =javascript_include_tag "jqtouch/jqtouch.min.js", "jqtouch/jquery.1.3.2.min.js", "mobile"
 %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;", :name => "viewport"}
+:javascript
+	function clickclear(thisfield, defaulttext) {
+		if (thisfield.value == defaulttext) {
+			thisfield.value = "";
+		}
+	}
+
+	function clickrecall(thisfield, defaulttext) {
+		if (thisfield.value == "") {
+			thisfield.value = defaulttext;
+		}
+	}
 =yield(:head)
 .current
 	.toolbar
 		=yield(:button_back)
 		%h1=yield(:title)
-		=link_to "Nuevo", "/tickets/new", :class => "button" unless current_page? "/tickets/new"
+		=yield(:button_new_edit)
 		=yield(:toolbar)
 
 	-unless flash.empty?
