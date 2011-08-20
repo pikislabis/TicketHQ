@@ -5,15 +5,19 @@
 -content_for :button_back do
 	=link_to "Atras", "/tickets/#{@record.ticket.id}", :class => "back"
 
-%h2 Descripción
-%ul
-	%li= @record.text1
+-if !@record.text1.blank?
+	%h2 Descripción
+	%ul
+		%li= @record.text1
 %h2 Detalle
 %ul
 	%li= @record.text2
 %h2 Usuario
 %ul
 	%li= @record.user.name
+%h2 Fecha
+%ul
+	%li= @record.created_at.strftime("%d/%m/%Y")
 
 -if @record.attaches.length != 0
 	%h2 Adjuntos

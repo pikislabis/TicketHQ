@@ -6,22 +6,22 @@
 			= image_tag "square.gif", :class => 'help', :title => "Entre 3 y 15 caracteres"
 			%br/
 			= f.text_field :name
-		%h3= "Permisos"		
+		%h3= "Permisos"
+		%p
+			= f.check_box :view
+			Ver
+		%p
+			= f.check_box :observe
+			Observar
+		%p
+			= f.check_box :make
+			Crear
 		%p
 			= f.check_box :upgrade
 			Actualizar
 		%p
 			= f.check_box :remove
 			Borrar
-		%p
-			= f.check_box :make
-			Crear
-		%p
-			= f.check_box :observe
-			Observar
-		%p
-			= f.check_box :view
-			Ver
 		%h3= "Proyectos"
 		%p
 			-for project in Project.find(:all)

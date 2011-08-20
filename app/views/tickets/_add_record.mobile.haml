@@ -1,0 +1,23 @@
+- form_tag ticket_path, :name => 'edit_ticket', :class => "form", :method => :put do
+	%h2 Comentario
+	%ul
+		%li=text_area_tag 'record[text1]'
+	
+	%h2 Estado
+	%ul
+		%li
+			-if Status.find(:all, :conditions => {:project_id => ticket.project_id}).nil?
+				=select :ticket, :status, @type_state
+			-else
+				=select :ticket, :status_id, Status.find(:all, :conditions => {:project_id => ticket.project_id}).map{|x| [x.name,x.id]}
+	
+	%h2 Prioridad
+	%ul
+		%li=select :ticket, :priority, @type_priorities
+	
+	%h2 Asignado
+	%ul
+		%li=select :ticket, :assigned_to, [nil, ] + users.map {|u| [u.name, u.id]}
+	
+	=link_to "Guardar", "#", :onclick => "document.edit_ticket.submit();", :class => "whiteButton submit"
+			

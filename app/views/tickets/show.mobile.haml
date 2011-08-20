@@ -4,9 +4,10 @@
 
 -content_for :button_back do
 	=link_to "Atras", "/projects/#{@ticket.project.id}", :class => "back"
-	
--content_for :button_new_edit do
-	=link_to "Nuevo", "/tickets/new", :class => "button" unless current_page? "/tickets/new"
+
+-if @edit	
+	-content_for :button_new_edit do
+		=link_to "Editar", "/tickets/new", :class => "button" unless current_page? "/tickets/new"
 
 %h2 Titulo
 %ul
@@ -23,6 +24,16 @@
 %h2 Estado
 %ul
 	%li= @ticket.status.name
+%h2 Prioridad
+%ul
+	%li= @ticket.priority	
+
+- if @edit
+	=link_to_function 'Actualizar', visual_effect(:toggle_appear, "ticket_#{@ticket.id}", :duration => 0.5), :class => 'whiteButton'
+	.box{ :id => "ticket_#{h @ticket.id}", :style => "display: none;" }
+		=render :partial => 'add_record', :locals => {:ticket => @ticket, :users => @users}
+
+	
 %h2 Cambios
 %ul
 	-for record in @ticket.records
