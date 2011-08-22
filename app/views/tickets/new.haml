@@ -4,7 +4,7 @@
 
 	- form_for :ticket, :url => tickets_path, :html => {:multipart => true } do |f|
 		%p
-			= label_tag 'Titulo: '
+			= label_tag 'Título: '
 			%br/
 			= f.text_field :title
 		%p
@@ -29,10 +29,17 @@
 						%div=render :partial => 'label', :collection => @ticket.labels[3..5]
 		%p
 			=label_tag 'Proyecto: '
-			-for project in @projects
-				%br/
-				=f.radio_button :project_id, project.id
-				=project.name
+			-if @project.nil?
+				%ul
+					-for project in @projects
+						%li
+							=f.radio_button :project_id, project.id
+							=project.name
+			-else
+				%ul
+					%li
+						=f.radio_button :project_id, @project.id
+						=@project.name
 
 		%p
 			= submit_tag 'Crear', :class => "submit"

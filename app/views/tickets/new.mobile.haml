@@ -16,6 +16,9 @@
 	%ul
 		%li=text_area_tag 'ticket[description]', @ticket.description
 		=hidden_field_tag 'ticket[user_id]', @ticket.user_id, :value => current_user.id
+	%h2 Prioridad
+	%ul
+		%li= select :ticket, :priority, @type_priorities
 	-if @project.nil?
 		%h2 Proyecto
 		%ul

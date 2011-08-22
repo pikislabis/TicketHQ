@@ -2,7 +2,7 @@
 	Proyectos
 
 -content_for :button_new_edit do
-	=link_to "Nuevo", "/tickets/new", :class => "button" unless current_page? "/tickets/new"
+	=link_to "Nuevo", "/tickets/new", :class => "button"
 
 %ul
 	-for project in @projects
