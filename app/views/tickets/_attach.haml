@@ -1,0 +1,4 @@
+.attach
+	-fields_for "record[attach_attributes][]", attach do |attach_form|
+		%p
+			=attach_form.file_field :file

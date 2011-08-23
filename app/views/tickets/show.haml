@@ -41,7 +41,7 @@
 	%table.lista_recursos
 		%thead
 			%tr
-				%th= "ID"
+				%th.ticket_id= "ID"
 				%th= "Usuario"
 				%th= "Descripcion"
 				%th= "Detalle"
@@ -50,7 +50,7 @@
 		%tbody
 		-for record in @records
 			%tr
-				%td= "##{record.id}"
+				%td.ticket_id= "##{record.id}"
 				%td
 					= image_tag record.user.gravatar_url(:size => 30)
 					.name= record.user.login

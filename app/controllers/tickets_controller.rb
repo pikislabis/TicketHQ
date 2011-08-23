@@ -63,6 +63,9 @@ class TicketsController < ApplicationController
 		@users = @ticket.users
 		
 		@records = Record.find(:all, :conditions => {:ticket_id => @ticket.id}).paginate(:page => params[:page], :per_page => 5)
+		
+		@record = Record.new
+		@record.attaches.build
   end
 
   # GET /tickets/new
@@ -112,30 +115,15 @@ class TicketsController < ApplicationController
   end
 
   def update
-    if !params[:file].blank? and params[:file].size > 3.megabytes
-      flash[:error] = "El archivo no puede ser mayor de 3MB."
-      redirect_to(@ticket)
-      return
+    if (current_user.id != @ticket.user_id and !current_user.admin?)
+      flash[:error] = 'No tiene privilegios para editar el ticket.'
+      redirect_to :back
     end
-    ticket_old = Ticket.find(params[:id])
     if @ticket.update_attributes(params[:ticket])
-	    @record = Record.new(params[:record])
-      @record.user = current_user
-	    @record.text2 = cambios_tickets(ticket_old, @ticket)
-      @record.text2 << " Añadido un fichero." if !params[:file].blank?
-      @record.text2 << " Añadido un comentario." if !params[:record][:text1] == ""
-	    @record.ticket = @ticket
-	    @record.save
-	    if !params[:file].blank?
-	      @attach = Attach.new()
-	      @attach.file = params[:file]
-	      @attach.record = @record
-	      @attach.save
-	    end
-      flash[:notice] = 'El ticket ha sido actualizado correctamente.'
+	    flash[:notice] = 'El ticket ha sido editado correctamente.'
       redirect_to(@ticket)
     else
-      flash[:error] = 'Ha habido un error al actualizar el ticket.'
+      flash[:error] = 'Ha habido un error al editar el ticket.'
       redirect_to(@ticket)
     end
   end
@@ -190,17 +178,4 @@ class TicketsController < ApplicationController
     def find_ticket
       @ticket = Ticket.find(params[:id])
     end
-    
-  	def cambios_tickets (ticket1, ticket2)
-  	  #TODO Controlar el cambio en las etiquetas.
-  	  cambios = ""
-      cambios << " Cambio de estado a #{ticket2.status.name}." if ticket1.status.name != ticket2.status.name
-      cambios << " Cambio de prioridad a #{ticket2.priority}." if ticket1.priority != ticket2.priority
-  	  if ticket1.assigned_to != ticket2.assigned_to and ticket2.assigned_to.nil?
-				cambios << " Se ha eliminado la asignacion del ticket."
-			elsif ticket1.assigned_to != ticket2.assigned_to and !ticket2.assigned_to.nil?
-  	    cambios << " Asignado a #{User.find(ticket2.assigned_to).login}."
-  	  end
-  	  cambios
-  	end
 end

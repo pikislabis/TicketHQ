@@ -1,11 +1,11 @@
 -content_for :content do
-	- form_for :ticket, :url => ticket_path, :html => { :method => :put, :multipart => true } do |f|
+	- form_for :ticket, :url => ticket_path, :html => { :method => :put} do |f|
 		%p
 			=label_tag 'Nombre:'
 			%br/
-			=f.text_field :title, :disabled => (current_user.id != @ticket.user_id and !current_user.admin?)
+			=f.text_field :title
 		%p
 			=label_tag 'Descripción:'
 			%br/
-			=f.text_area :description, :rows => 5, :disabled => (current_user.id != @ticket.user_id and !current_user.admin?)
+			=f.text_area :description
 		%p= submit_tag 'Actualizar', :class => "submit"

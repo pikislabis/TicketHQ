@@ -6,6 +6,8 @@ class Ticket < ActiveRecord::Base
 
 	has_many :ticket_subscribes
 	has_many :user_subs, :through => :ticket_subscribes, :source => :user
+	
+	has_many :attaches, :through => :records
 
 	has_many :labels, :dependent => :destroy
 	

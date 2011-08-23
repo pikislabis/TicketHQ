@@ -304,6 +304,14 @@ table.lista_recursos{
 	padding: 4px 10px 4px 5px;
 }
 
+.lista_recursos ul{
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	-webkit-padding-start: 0px;
+}
+
 .ticket_id{
 	text-align: center;
 	width: 40px;
