@@ -4,3 +4,9 @@ log/*
 TicketHQ.ids
 config/deploy.rb
 public/files/*
+tmp/*
+test/*
+features/*
+spec/*
+doc/*
+nbproject/*
