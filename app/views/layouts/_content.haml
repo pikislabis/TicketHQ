@@ -1,7 +1,8 @@
 #nav
 	%ul
 		%li.rounded= link_to 'Tickets', :controller => "/tickets", :action => 'index'
-		-if :controller_path == 'projects' and !params[:id].blank?
+		-path = ActionController::Routing::Routes.recognize_path request.env['PATH_INFO']
+		-if path[:controller] == 'projects' and !params[:id].blank? and Project.proyectos(current_user,"make").include? Project.find(params[:id])
 			%li.rounded= link_to 'Nuevo ticket', new_project_ticket_path(@project.id)			
 		-else
 			%li.rounded= link_to 'Nuevo ticket', new_ticket_path

@@ -13,8 +13,8 @@
 				=content_tag :div, msg, :id => "flash_#{name}"	
 	-form_tag session_path, :name => "login_user", :class => "form" do
 		%ul
-			%li=text_field_tag 'login', @login, :value => "Usuario", :onclick => "clickclear(this, 'Usuario')", :onblur => "clickrecall(this,'Usuario')"
-			%li=password_field_tag 'password', nil, :value => "Password", :onclick => "clickclear(this, 'Password')", :onblur => "clickrecall(this,'Password')"
+			%li=text_field_tag 'login', @login, :placeholder => 'Usuario'
+			%li=password_field_tag 'password', nil, :placeholder => 'Password'
 			%li
 				= check_box_tag 'remember_me', '1', @remember_me
 				Recordarme	

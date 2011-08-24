@@ -1,8 +1,11 @@
 -content_for :title do
 	Proyectos
 
+-content_for :button_back do
+	=link_to "Salir", '/logout', :class => "back"
+		
 -content_for :button_new_edit do
-	=link_to "Nuevo", "/tickets/new", :class => "button"
+	=link_to "Buscar", "/search", :class => "button"
 
 %ul
 	-for project in @projects

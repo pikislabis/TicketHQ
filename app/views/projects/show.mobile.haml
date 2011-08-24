@@ -3,9 +3,11 @@
 
 -content_for :button_back do
 	=link_to "Atras", projects_path, :class => "back"
-	
--content_for :button_new_edit do
-	=link_to "Nuevo", new_project_ticket_path(@project.id), :class => "button"
+
+-path = ActionController::Routing::Routes.recognize_path request.env['PATH_INFO']
+-if Project.proyectos(current_user,"make").include? Project.find(params[:id])	
+	-content_for :button_new_edit do
+		=link_to "Nuevo", new_project_ticket_path(@project.id), :class => "button"
 
 %ul
 	-for ticket in @tickets.select{|p| !p.status.close}

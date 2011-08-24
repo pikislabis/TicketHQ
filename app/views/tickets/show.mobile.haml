@@ -3,7 +3,7 @@
 	=@ticket.id
 
 -content_for :button_back do
-	=link_to "Atras", "/projects/#{@ticket.project.id}", :class => "back"
+	=link_to "Atras", :back, :class => "back"
 
 -if @edit	
 	-content_for :button_new_edit do

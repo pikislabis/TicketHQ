@@ -1,0 +1,5 @@
+%ul
+	-for ticket in @tickets
+		%li.arrow
+			=link_to ticket.title, ticket_path(ticket.id)
+= will_paginate @tickets, :class => "will_paginate", :previous_label => "<", :next_label => ">"

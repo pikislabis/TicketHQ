@@ -33,3 +33,11 @@
 	font-weight: bold;
 	text-decoration: none;
 }
+
+.time select{
+	width: 30%;
+	border-top: 1px solid #B4B4B4;
+}
+
+.time li{
+}

@@ -1,0 +1,39 @@
+-content_for :title do
+	Buscar
+
+-content_for :button_back do
+	=link_to "Atras", projects_path, :class => "back"
+	
+-form_tag "/search", :name => 'search', :class => "form" do
+
+	%ul
+		%li.edit.rounded=text_field_tag "search[title_or_description_like_all]", nil, :placeholder => 'Título o descripción'
+
+	%h2 Creador
+	%ul
+		%li=collection_select :search, :user_id, @users, :id, :name, :include_blank => true
+
+	%h2 Proyecto
+	%ul
+		%li=collection_select :search, :project_id, @projects, :id, :name, :include_blank => true
+		=observe_field :search_project_id, :url => { :action => :update_status_menu },
+              							:update => :status_field_div,
+              							:with => :project_id
+
+	%h2 Estado
+	%ul#status_field_div
+		%li=collection_select :search, :status_id, @statuses, :id, :name, :include_blank => true
+
+	%h2 Fecha desde
+
+	%h2 Fecha hasta
+	
+	%ul.rounded
+		%li	
+			Cerrado
+			%span.toggle=check_box_tag "search[status_close_is]"
+			
+	=link_to "Buscar", "#", :onclick => "document.search.submit();", :class => "whiteButton submit"
+	
+	#tickets
+		= render :partial => 'ticket_list', :locals => {:show_closed => true}
