@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.restor_password '/forgot_password', :controller => 'users', :action => 'forgot'
   map.reset 'reset/:reset_code', :controller => 'users', :action => 'reset'
   map.search '/search', :controller => 'tickets', :action => 'advanced_search'
+  map.connect 'tickets/:id/related_tickets', :controller => 'tickets', :action => 'related_tickets'
 
   map.resources :projects
   map.resources :users

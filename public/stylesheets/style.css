@@ -329,6 +329,10 @@ table.lista_recursos{
 	width: 100px;
 }
 
+.ticket_action{
+	width: 60px;
+}
+
 td.nombre{
 	text-align: left;
 	width: 100px;
@@ -509,6 +513,11 @@ table#form_search{
 	width: 100%;
 }
 
+table#form_related{
+	width: 50%;
+	display: block;
+}
+
 #form_search label{
 	font-size: 12px;
 }
@@ -530,4 +539,8 @@ table#form_search{
 	width: auto;
 	margin-top: -22px;
 	margin-right: 10px;
+}
+
+.show_hide_tickets{
+	float: right;
 }

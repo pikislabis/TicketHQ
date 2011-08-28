@@ -11,7 +11,12 @@ class Ticket < ActiveRecord::Base
 
 	has_many :labels, :dependent => :destroy
 	
-	validates_presence_of :project_id
+	has_many :ticketRelationships
+	has_many :inverse_ticketRelationships, :class_name => "TicketRelationship", :foreign_key => "ticket_o_id"
+	has_many :direct_tickets, :through => :ticketRelationships, :source => :ticket_o
+  has_many :inverse_tickets, :through => :inverse_ticketRelationships, :source => :ticket
+  
+  validates_presence_of :project_id
 
 	def label_attributes=(label_attributes)
     label_attributes.each do |attributes|
@@ -25,6 +30,11 @@ class Ticket < ActiveRecord::Base
 			label.update_attributes(attributes.to_a[1])
     end
   end
+
+  def related_tickets
+    direct_tickets | inverse_tickets
+  end
+  
 
 	def users
 		users = self.project.groups.map{|x| x.users }

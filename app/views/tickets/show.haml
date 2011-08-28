@@ -36,6 +36,15 @@
 				.labels
 					%strong Etiquetas: 
 					=@ticket.labels.map{|x| x.name unless x.name.blank?}.compact.join(", ")
+
+	%h3
+		Tickets Relacionados
+		=' | '
+		=link_to 'Editar', :controller => 'tickets', :action => 'related_tickets', :id => params[:id]
+
+	-if @related_tickets.length > 0
+		-@tickets = @related_tickets
+		=render :partial => 'ticket_list', :locals => {:show_closed => true}
 			
 	%h3 Cambios
 	%table.lista_recursos

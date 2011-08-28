@@ -66,6 +66,8 @@ class TicketsController < ApplicationController
 		
 		@record = Record.new
 		@record.attaches.build
+		
+		@related_tickets = @ticket.related_tickets.paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /tickets/new
@@ -168,6 +170,48 @@ class TicketsController < ApplicationController
 	  end
 		@tickets = @tickets.paginate(:page => params[:page], :per_page => 10)
 	end
+	
+	def related_tickets
+	  @ticket = Ticket.find(params[:id])
+	  @projects = Project.proyectos(current_user,"view")
+	  if params[:search].nil?
+		  @statuses = Array.new
+		else
+		  @statuses = params[:search][:project_id].blank? ? Array.new : Project.find(params[:search][:project_id]).statuses
+		  params[:search]["title_or_description_like_all"] = params[:search]["title_or_description_like_all"].split
+		end
+		@search = Ticket.search(params[:search])
+		@tickets = @search.all
+		if !params[:search].nil?
+	    aux = params[:search]["title_or_description_like_all"]
+	    params[:search].delete("title_or_description_like_all")
+	    params[:search]["title_or_description_like_any"] = aux
+	    @search = Ticket.search(params[:search])
+	    @tickets.concat(@search.all).uniq!
+	  end
+		@tickets = @tickets.paginate(:page => params[:page], :per_page => 10)
+	end
+	
+	def mod_rel_tickets
+	  @ticket = Ticket.find(params[:ticket_id])
+	  @ticket_o = Ticket.find(params[:ticket_o_id])
+	  
+	  if params[:type] == 'add'
+	    ticket_rel = TicketRelationship.new
+	    ticket_rel.ticket = @ticket
+	    ticket_rel.ticket_o = @ticket_o
+	    ticket_rel.user_id = current_user.id
+	    ticket_rel.save  
+	  elsif params[:type] == 'del'
+	    ticket_rel_1 = TicketRelationship.find(:first, :conditions => {:ticket_id => params[:ticket_id], :ticket_o_id => params[:ticket_o_id]})
+	    ticket_rel_2 = TicketRelationship.find(:first, :conditions => {:ticket_id => params[:ticket_o_id], :ticket_o_id => params[:ticket_id]})
+	    
+	    ticket_rel_1.nil? ? '' : ticket_rel_1.delete
+	    ticket_rel_2.nil? ? '' : ticket_rel_2.delete
+
+	  end  
+	  render(:layout => false)
+	end 
 	
 	def update_status_menu
 	  @statuses = params[:project_id].blank? ? Array.new : Project.find(params[:project_id]).statuses

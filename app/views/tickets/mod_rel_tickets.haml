@@ -1,0 +1,4 @@
+-if @ticket.related_tickets.include? @ticket_o
+	%td{ :id => "rel_ticket_#{@ticket_o.id}"}=link_to_remote 'Eliminar', :url => {:controller => :tickets, :action => :mod_rel_tickets, :ticket_id => @ticket.id, :ticket_o_id => @ticket_o.id, :type => 'del'}, :update => "rel_ticket_#{@ticket_o.id}"
+-else
+	%td{ :id => "rel_ticket_#{@ticket_o.id}"}=link_to_remote 'Relacionar', :url => {:controller => :tickets, :action => :mod_rel_tickets, :ticket_id => @ticket.id, :ticket_o_id => @ticket_o.id, :type => 'add'}, :update => "rel_ticket_#{@ticket_o.id}"

@@ -8,7 +8,8 @@
 			%th.ticket_prioridad= "Prioridad"
 			%th.ticket_date= "Fecha"
 	%tbody
-		-for ticket in @tickets
+		- show_closed = true
+		-for ticket in @related_tickets
 			%tr{:id => "#{ticket.status.close ? 'closed' : 'opened' }", :style => "#{show_closed ? '' : ticket.status.close ? 'display: none' : ''}"}	
 				%td.ticket_id= "##{ticket.id}"
 				%td{:title => ticket.description}
@@ -21,4 +22,4 @@
 				%td= ticket.status.name
 				%td= ticket.priority
 				%td= ticket.created_at.strftime("%d/%m/%Y")
-=will_paginate @tickets
+	=will_paginate @related_tickets

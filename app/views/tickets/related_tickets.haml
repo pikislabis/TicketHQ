@@ -1,0 +1,60 @@
+-content_for :content do
+	%h2
+		Relacionar ticket
+		=link_to "#{@ticket.title}##{@ticket.id}", ticket_path(@ticket.id)
+	
+	-form_for @search do |f|
+		%table#form_related
+			%tbody
+				%tr
+					%td
+						=f.label :title_or_description_like, "Titulo o Descripción"
+						=f.text_field :title_or_description_like_all
+				%tr
+					%td
+						=f.label :project_id, "Proyecto"
+						=f.collection_select :project_id, @projects, :id, :name, :include_blank => true
+						=observe_field :search_project_id, :url => { :action => :update_status_menu },
+			                  							:update => :status_field_div,
+			                  							:with => :project_id
+					%td
+						#status_field_div
+							%label{:for => "status_id"} Estado
+							=collection_select :search, :status_id, @statuses, :id, :name, :include_blank => true
+			
+				%tr
+					%td=f.submit "Buscar", :class => "submit"
+	-if @tickets.blank?
+		No se han obtenido ningún ticket en la búsqueda.
+	-else
+		=link_to_function "Mostrar/Ocultar Tickets Cerrados", visual_effect(:toggle_appear, "closed", :duration => 0.5), :class => 'show_hide_tickets'
+		#tickets
+			%table.lista_recursos
+				%thead
+					%tr
+						%th.ticket_id= "ID"
+						%th= "Resumen"
+						%th= "Proyecto"
+						%th.ticket_estado= "Estado"
+						%th.ticket_prioridad= "Prioridad"
+						%th.ticket_date= "Fecha"
+						%th.ticket_action="Acción"
+				%tbody
+					-for ticket in @tickets
+						%tr{:id => "#{ticket.status.close ? 'closed' : 'opened' }", :style => "#{ticket.status.close ? 'display: none' : ''}"}	
+							%td.ticket_id= "##{ticket.id}"
+							%td{:title => ticket.description}
+								.img_ticket
+									= image_tag ticket.user.gravatar_url(:size => 30)
+								.info_ticket
+									%h4{:class => "#{ticket.status.close ? 'closed' : 'opened' }"}= link_to ticket.title, ticket_path(ticket)
+									%span.user_ticket= ticket.user.name
+							%td= ticket.project.name
+							%td.ticket_estado= ticket.status.name
+							%td.ticket_prioridad= ticket.priority
+							%td.ticket_date= ticket.created_at.strftime("%d/%m/%Y")
+							-if @ticket.related_tickets.include? ticket
+								%td.ticket_action{:id => "rel_ticket_#{ticket.id}"}=link_to_remote 'Eliminar', :url => {:controller => :tickets, :action => :mod_rel_tickets, :ticket_id => @ticket.id, :ticket_o_id => ticket.id, :type => 'del'}, :update => "rel_ticket_#{ticket.id}"
+							-else
+								%td.ticket_action{:id => "rel_ticket_#{ticket.id}"}=link_to_remote 'Relacionar', :url => {:controller => :tickets, :action => :mod_rel_tickets, :ticket_id => @ticket.id, :ticket_o_id => ticket.id, :type => 'add'}, :update => "rel_ticket_#{ticket.id}"
+			=will_paginate @tickets
